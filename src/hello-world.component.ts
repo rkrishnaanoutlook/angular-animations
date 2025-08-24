@@ -13,24 +13,29 @@ import { Component, OnInit } from '@angular/core';
         <span>2-Hour Trial</span>
         <span class="rocket">🚀</span>
 
-        <span
-          *ngIf="sparkle"
-          class="sparkle-burst"
-          (animationend)="sparkle = false"
-        >
-          <span class="spark" *ngFor="let _ of particles"></span>
-        </span>
+        @if (sparkle) {
+          <span
+            class="sparkle-burst"
+            (animationend)="sparkle = false"
+          >
+            @for (_ of particles; track $index) {
+              <span class="spark"></span>
+            }
+          </span>
+        }
       </button>
 
-      <div *ngIf="showTip" class="tooltip">
-        <div class="tip-header">Try it instantly</div>
-        Start a 2‑hour session in seconds — no license server required.
-        <div class="tip-footer">
-          <span class="hint">Click to begin</span>
-          <button (click)="dismissTip()">Dismiss</button>
+      @if (showTip) {
+        <div class="tooltip">
+          <div class="tip-header">Try it instantly</div>
+          Start a 2‑hour session in seconds — no license server required.
+          <div class="tip-footer">
+            <span class="hint">Click to begin</span>
+            <button (click)="dismissTip()">Dismiss</button>
+          </div>
+          <span class="tip-arrow"></span>
         </div>
-        <span class="tip-arrow"></span>
-      </div>
+      }
     </div>
   `,
   styles: [
