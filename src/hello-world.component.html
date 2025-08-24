@@ -1,0 +1,33 @@
+<h2 class="fade-in">Hello World</h2>
+
+<div class="trial-wrapper">
+  <button class="trial-btn" (click)="triggerSparkle()">
+    <span class="badge">New</span>
+    <span class="timer">⏱</span>
+    <span>2-Hour Trial</span>
+    <span class="rocket">🚀</span>
+
+    @if (sparkle) {
+      <span
+        class="sparkle-burst"
+        (animationend)="sparkle = false"
+      >
+        @for (_ of particles; track $index) {
+          <span class="spark"></span>
+        }
+      </span>
+    }
+  </button>
+
+  @if (showTip) {
+    <div class="tooltip">
+      <div class="tip-header">Try it instantly</div>
+      Start a 2‑hour session in seconds — no license server required.
+      <div class="tip-footer">
+        <span class="hint">Click to begin</span>
+        <button (click)="dismissTip()">Dismiss</button>
+      </div>
+      <span class="tip-arrow"></span>
+    </div>
+  }
+</div>
