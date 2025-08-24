@@ -1,7 +1,6 @@
 import 'zone.js';
 import {Component} from '@angular/core';
 import {bootstrapApplication} from '@angular/platform-browser';
-import {provideAnimations} from '@angular/platform-browser/animations';
 import {HelloWorldComponent} from './hello-world.component';
 
 @Component({
@@ -20,6 +19,4 @@ export class App {
   name = 'Angular';
 }
 
-bootstrapApplication(App, {
-  providers: [provideAnimations()]
-});
+bootstrapApplication(App);
