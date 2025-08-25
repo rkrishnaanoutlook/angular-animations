@@ -29,6 +29,10 @@ export class HelloWorldComponent implements OnInit {
       'timer',
       this.sanitizer.bypassSecurityTrustResourceUrl('assets/timer.svg'),
     );
+    this.iconRegistry.addSvgIcon(
+      'new-badge',
+      this.sanitizer.bypassSecurityTrustResourceUrl('assets/new-badge.svg'),
+    );
   }
 
   ngOnInit() {
