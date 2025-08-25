@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
+import { MatTabsModule } from '@angular/material/tabs';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-hello-world',
   standalone: true,
-  imports: [MatIconModule],
+  imports: [MatIconModule, MatTabsModule],
   templateUrl: './hello-world.component.html',
   styleUrls: ['./hello-world.component.css']
 })
