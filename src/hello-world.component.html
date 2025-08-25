@@ -1,9 +1,9 @@
 <div class="trial-wrapper">
   <button class="trial-btn" (click)="triggerSparkle($event)">
     <span class="badge">New</span>
-    <span class="timer">⏱</span>
+    <mat-icon class="timer" svgIcon="timer"></mat-icon>
     <span>2-Hour Trial</span>
-    <span class="rocket">🚀</span>
+    <mat-icon class="rocket" svgIcon="rocket"></mat-icon>
 
     @if (sparkle) {
       <span

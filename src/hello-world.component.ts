@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-hello-world',
   standalone: true,
+  imports: [MatIconModule],
   templateUrl: './hello-world.component.html',
   styleUrls: ['./hello-world.component.css']
 })
@@ -12,6 +15,20 @@ export class HelloWorldComponent implements OnInit {
   sparkleX = 0;
   sparkleY = 0;
   particles = Array(8);
+
+  constructor(
+    private iconRegistry: MatIconRegistry,
+    private sanitizer: DomSanitizer,
+  ) {
+    this.iconRegistry.addSvgIcon(
+      'rocket',
+      this.sanitizer.bypassSecurityTrustResourceUrl('assets/rocket.svg'),
+    );
+    this.iconRegistry.addSvgIcon(
+      'timer',
+      this.sanitizer.bypassSecurityTrustResourceUrl('assets/timer.svg'),
+    );
+  }
 
   ngOnInit() {
     this.showTip = true;
