@@ -1,33 +1,43 @@
-<div class="trial-wrapper">
-  <button class="trial-btn" (click)="triggerSparkle($event)">
-    <span class="badge">New</span>
-    <mat-icon class="timer" svgIcon="timer"></mat-icon>
-    <span>2-Hour Trial</span>
-    <mat-icon class="rocket" svgIcon="rocket"></mat-icon>
-
-    @if (sparkle) {
-      <span
-        class="sparkle-burst"
-        (animationend)="sparkle = false"
-        [style.--x.px]="sparkleX"
-        [style.--y.px]="sparkleY"
-      >
-        @for (_ of particles; track $index) {
-          <span class="spark"></span>
+<mat-tab-group>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <div class="trial-wrapper">
+        <button class="trial-btn" (click)="triggerSparkle($event)">
+          <span class="badge">New</span>
+          <mat-icon class="timer" svgIcon="timer"></mat-icon>
+          <span>2-Hour Trial</span>
+          <mat-icon class="rocket" svgIcon="rocket"></mat-icon>
+          @if (sparkle) {
+            <span
+              class="sparkle-burst"
+              (animationend)="sparkle = false"
+              [style.--x.px]="sparkleX"
+              [style.--y.px]="sparkleY"
+            >
+              @for (_ of particles; track $index) {
+                <span class="spark"></span>
+              }
+            </span>
+          }
+        </button>
+        @if (showTip) {
+          <div class="tooltip">
+            <div class="tip-header">Try it instantly</div>
+            Start a 2‑hour session in seconds — no license server required.
+            <div class="tip-footer">
+              <span class="hint">Click to begin</span>
+              <button (click)="dismissTip()">Dismiss</button>
+            </div>
+            <span class="tip-arrow"></span>
+          </div>
         }
-      </span>
-    }
-  </button>
-
-  @if (showTip) {
-    <div class="tooltip">
-      <div class="tip-header">Try it instantly</div>
-      Start a 2‑hour session in seconds — no license server required.
-      <div class="tip-footer">
-        <span class="hint">Click to begin</span>
-        <button (click)="dismissTip()">Dismiss</button>
       </div>
-      <span class="tip-arrow"></span>
-    </div>
-  }
-</div>
+    </ng-template>
+    <ng-template matTabContent>
+      Sample Content
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Second">
+    <p>Second tab content</p>
+  </mat-tab>
+</mat-tab-group>
